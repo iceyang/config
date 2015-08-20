@@ -1,1 +1,3 @@
 # config
+
+store some configuration.
