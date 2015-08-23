@@ -1,3 +1,3 @@
-# config
+# dotfile
 
 store some configuration.
