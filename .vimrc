@@ -24,7 +24,10 @@ autocmd BufNewFile,BufReadPost *.go setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.json setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.html setl tabstop=4 shiftwidth=4 expandtab
+autocmd BufNewFile,BufReadPost *.ejs setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.html setl tabstop=2 shiftwidth=2 expandtab
+
+au BufNewFile,BufRead *.ejs set filetype=html
 
 " set mapleader
 let mapleader = "\<Space>"
