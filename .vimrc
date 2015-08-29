@@ -26,6 +26,7 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.ejs setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.xml setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.sh setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.html setl tabstop=2 shiftwidth=2 expandtab
 
 au BufNewFile,BufRead *.ejs set filetype=html
