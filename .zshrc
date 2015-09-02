@@ -50,17 +50,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-export GRADLE_HOME=/usr/local/gradle-2.2.1
-export SVN_EDITOR=vim
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/iceyang/.boot2docker/certs/
-export DOCKER_TLS_VERIFY=1
-export DOCKER_CERT_PATH=/Users/iceyang/.boot2docker/certs/boot2docker-vm
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/mysql/bin:/usr/local/mongodb/bin:$GRADLE_HOME/bin:/usr/local/qrsctl
-export NODE_ENV='development'
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -88,25 +77,32 @@ export NODE_ENV='development'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
+# User configuration
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-export GOBIN="/Users/iceyang/project/go/bin"
-export GOPATH="/Users/iceyang/project/go"
+export SVN_EDITOR=vim
 
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export GRADLE_HOME=/usr/local/gradle-2.2.1
 export SCALA_HOME="/usr/local/scala"
 export SBT_OPTS="-Dsbt.override.build.repos=true -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 export AKKA_HOME="/usr/local/akka"
 
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/mysql/bin:/usr/local/mongodb/bin:$SCALA_HOME/bin:/usr/local/activator-dist-1.3.5:/Users/iceyang/bin"
-export SVN_EDITOR=vim
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# Docker configuartion
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/iceyang/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
+export DOCKER_CERT_PATH=/Users/iceyang/.boot2docker/certs/
+
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/mysql/bin:/usr/local/mongodb/bin:$SCALA_HOME/bin:$GRADLE_HOME/bin:/usr/local/activator-dist-1.3.5:/usr/local/qrsctl"
+
+export NODE_ENV='development'
+
+export GOBIN="/Users/iceyang/project/go/bin"
+export GOPATH="/Users/iceyang/project/go"
 
 # set vim alias
-alias vim="/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim"
-
 export TMUX_POWERLINE_SEG_WEATHER_LOCATION="2161838"
 
 source ~/.vipcrc
@@ -117,13 +113,15 @@ alias repox="java -Xmx512m -jar /Users/iceyang/project/repox/target/scala-2.11/r
 # set proxychains
 alias gfw=proxychains4
 
+#alias
 alias coffeepwd="coffee -o . -cw ."
-#alias connect="/Users/iceyang/project/script/connect.sh"
-#alias tmux-session="/Users/iceyang/project/script/tmux-session.sh"
+alias vim="/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim"
+
 alias 90="connect 90"
 alias 94="connect 94"
 alias 95="connect 95"
 alias 243="connect 243"
+
 alias node001="connect node001"
 alias node002="connect node002"
 alias node003="connect node003"
