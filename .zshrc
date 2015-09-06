@@ -116,6 +116,7 @@ alias gfw=proxychains4
 #alias
 alias coffeepwd="coffee -o . -cw ."
 alias vim="/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim"
+alias .="vim ."
 
 alias 90="connect 90"
 alias 94="connect 94"
