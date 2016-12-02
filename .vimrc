@@ -23,10 +23,13 @@ set incsearch		" do incremental searching
 autocmd BufNewFile,BufReadPost *.go setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.json setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.scala setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.css setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.ejs setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.xml setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.sh setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.conf setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.html setl tabstop=2 shiftwidth=2 expandtab
 
 au BufNewFile,BufRead *.ejs set filetype=html
@@ -43,6 +46,7 @@ map <silent> <leader>h <c-w>h
 map <silent> <leader>j <c-w>j
 map <silent> <leader>k <c-w>k
 map <silent> <leader>l <c-w>l
+map <silent> <leader>gy :Goyo<CR>
 
 "When .vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc 
@@ -92,4 +96,12 @@ set encoding=utf-8
 set termencoding=utf-8
 let Powerline_symbols = 'compatible'
 
-set clipboard=unnamed
+" set clipboard=unnamed
+
+" 配置Haskell
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
