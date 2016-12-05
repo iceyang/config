@@ -105,9 +105,6 @@ export TMUX_POWERLINE_SEG_WEATHER_LOCATION="2161838"
 # sbt repo
 alias repox="java -Xmx512m -jar /Users/iceyang/project/repox/target/scala-2.11/repox-assembly-0.1-SNAPSHOT.jar"
 
-# set proxychains
-alias gfw=proxychains4
-
 #alias
 alias coffeepwd="coffee -o . -cw ."
 alias vim="/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim"
@@ -121,9 +118,15 @@ alias gateway002="ssh -p 2222 linbingyang@vipc.gateway002"
 export NVM_DIR="/Users/iceyang/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-#良勇外包需要
+#liangyong需要
 export CONFIG_FILE=/Users/iceyang/project/emc4mey/ssmp.conf
 
 #我的阿里云
 alias aliyun="ssh -p 2222 linbingyang@112.74.59.72"
+
 source ~/.vipcrc
+
+#polipo，socks转http
+alias polipo="polipo socksParentProxy=localhost:1080 daemonise=true logFile=/Users/iceyang/polipo.log"
+export http_proxy="http://localhost:8123"
+export https_proxy="http://localhost:8123"
