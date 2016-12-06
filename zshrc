@@ -122,11 +122,10 @@ export NVM_DIR="/Users/iceyang/.nvm"
 export CONFIG_FILE=/Users/iceyang/project/emc4mey/ssmp.conf
 
 #我的阿里云
-alias aliyun="ssh -p 2222 linbingyang@112.74.59.72"
+alias aliyun="ssh -p 2222 linbingyang@myaliyun"
 
 source ~/.vipcrc
 
 #polipo，socks转http
 alias polipo="polipo socksParentProxy=localhost:1080 daemonise=true logFile=/Users/iceyang/polipo.log"
-export http_proxy="http://localhost:8123"
-export https_proxy="http://localhost:8123"
+alias setproxy="export http_proxy='http://localhost:8123'; export https_proxy='http://localhost:8123'"
