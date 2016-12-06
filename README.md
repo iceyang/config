@@ -1,3 +1,1 @@
-# dotfile
-
-store some configuration.
+My Dotfile Configuration.
