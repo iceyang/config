@@ -80,15 +80,15 @@ source $ZSH/oh-my-zsh.sh
 #
 
 # User configuration
-export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8  
+#export LANG=zh_CN.UTF-8
+#export LC_ALL=zh_CN.UTF-8
 export SVN_EDITOR=vim
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export GRADLE_HOME=/usr/local/gradle-2.2.1
-export SCALA_HOME="/usr/local/scala"
-export SBT_OPTS="-Dsbt.override.build.repos=true -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
-#export AKKA_HOME="/usr/local/akka"
+export SBT_HOME="/usr/local/sbt"
+export SBT_OPTS="-Dsbt.repository.secure=false -Dsbt.override.build.repos=true -XX:+CMSClassUnloadingEnabled"
 export ANDROID_SDK_HOME="/Users/iceyang/Library/Android/sdk"
 export ANDROID_AVD_HOME="/Users/iceyang/.android/avd"
 
@@ -97,7 +97,7 @@ export NODE_ENV='development'
 export GOBIN="/Users/iceyang/project/go/bin"
 export GOPATH="/Users/iceyang/project/go"
 
-export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/mysql/bin:/usr/local/mongodb/bin:$SCALA_HOME/bin:$GRADLE_HOME/bin:/usr/local/activator-dist-1.3.5:/usr/local/qrsctl:$ANDROID_SDK_HOME/tools:$GOBIN"
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/qrsctl:$ANDROID_SDK_HOME/tools:$GOBIN:$SBT_HOME/bin:$HOME/Library/Python/2.7/bin"
 
 # set vim alias
 export TMUX_POWERLINE_SEG_WEATHER_LOCATION="2161838"
@@ -106,26 +106,29 @@ export TMUX_POWERLINE_SEG_WEATHER_LOCATION="2161838"
 alias repox="java -Xmx512m -jar /Users/iceyang/project/repox/target/scala-2.11/repox-assembly-0.1-SNAPSHOT.jar"
 
 #alias
-alias coffeepwd="coffee -o . -cw ."
-alias vim="/usr/local/Cellar/macvim/7.4-73_1/MacVim.app/Contents/MacOS/Vim"
+alias vim="/usr/local/Cellar/macvim/8.0-143/MacVim.app/Contents/MacOS/Vim"
 alias ll="ls -alh"
 alias redis-server="cd; nohup redis-server > ~/redis.log &; cd -"
 #alias vim=mvim
 
 alias gateway002="ssh -p 2222 linbingyang@vipc.gateway002"
 
-
 export NVM_DIR="/Users/iceyang/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-#liangyong需要
-export CONFIG_FILE=/Users/iceyang/project/emc4mey/ssmp.conf
 
 #我的阿里云
 alias aliyun="ssh -p 2222 linbingyang@myaliyun"
 
 source ~/.vipcrc
+source ~/.bdianrc
+source ~/.vmrc
 
 #polipo，socks转http
 alias polipo="polipo socksParentProxy=localhost:1080 daemonise=true logFile=/Users/iceyang/polipo.log"
 alias setproxy="export http_proxy='http://localhost:8123'; export https_proxy='http://localhost:8123'"
+
+alias pm2log="tail -f /Users/iceyang/.pm2/logs/*.log | bunyan"
+
+plugins=(kubectl)
+source <(kubectl completion zsh)
+#source <(minikube completion zsh)

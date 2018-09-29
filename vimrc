@@ -20,6 +20,7 @@ set incsearch		" do incremental searching
 " 配置ctags
 " let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
 
+autocmd BufNewFile,BufReadPost *.vue setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.go setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.json setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
@@ -31,6 +32,7 @@ autocmd BufNewFile,BufReadPost *.xml setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.sh setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.conf setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.html setl tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.yaml setl tabstop=2 shiftwidth=2 expandtab
 
 au BufNewFile,BufRead *.ejs set filetype=html
 
@@ -50,6 +52,10 @@ map <silent> <leader>gy :Goyo<CR>
 
 "When .vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc 
+
+" js tern
+map <silent> <Leader>tdef :TernDef<CR>
+map <silent> <Leader>tdoc :TernDoc<CR>
 
 " vim-go custom mappings
 au FileType go nmap <Leader>s <Plug>(go-implements)
@@ -113,3 +119,13 @@ let g:haskell_indent_do = 3
 let g:haskell_indent_in = 1
 let g:haskell_indent_guard = 2
 let g:haskell_indent_case_alternative = 1
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" 配置缩进 https://github.com/tmhedberg/SimpylFold
+let g:SimpylFold_docstring_preview = 1
