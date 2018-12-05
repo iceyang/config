@@ -47,14 +47,19 @@ ZSH_THEME="apple"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git svn
+  kubectl
+  zsh-completions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -80,11 +85,11 @@ source $ZSH/oh-my-zsh.sh
 #
 
 # User configuration
-export LANG=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8  
+export LC_ALL=en_US.UTF-8
 #export LANG=zh_CN.UTF-8
 #export LC_ALL=zh_CN.UTF-8
 export SVN_EDITOR=vim
+#export SVN_EDITOR=emacs
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export SBT_HOME="/usr/local/sbt"
@@ -108,19 +113,13 @@ alias repox="java -Xmx512m -jar /Users/iceyang/project/repox/target/scala-2.11/r
 #alias
 alias vim="/usr/local/Cellar/macvim/8.0-143/MacVim.app/Contents/MacOS/Vim"
 alias ll="ls -alh"
-alias redis-server="cd; nohup redis-server > ~/redis.log &; cd -"
 #alias vim=mvim
-
-alias gateway002="ssh -p 2222 linbingyang@vipc.gateway002"
 
 export NVM_DIR="/Users/iceyang/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-#我的阿里云
-alias aliyun="ssh -p 2222 linbingyang@myaliyun"
-
 source ~/.vipcrc
-source ~/.bdianrc
+source ~/.myselfrc
 source ~/.vmrc
 
 #polipo，socks转http
@@ -129,6 +128,6 @@ alias setproxy="export http_proxy='http://localhost:8123'; export https_proxy='h
 
 alias pm2log="tail -f /Users/iceyang/.pm2/logs/*.log | bunyan"
 
-plugins=(kubectl)
 source <(kubectl completion zsh)
-#source <(minikube completion zsh)
+source ~/.minikube-completion
+source ~/.npmcompletion

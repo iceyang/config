@@ -31,6 +31,7 @@ autocmd BufNewFile,BufReadPost *.ejs setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.xml setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.sh setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.conf setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.ts setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.html setl tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.yaml setl tabstop=2 shiftwidth=2 expandtab
 
@@ -94,15 +95,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 nmap <F3> :TagbarToggle<CR>
 nmap <F2> :NERDTreeToggle<CR>
 
-" set powerline
-set rtp+=/Users/iceyang/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
-set laststatus=2
-let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set termencoding=utf-8
-let Powerline_symbols = 'compatible'
 
-" set clipboard=unnamed
+" set powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " 配置Haskell
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -129,3 +128,6 @@ nnoremap <space> za
 
 " 配置缩进 https://github.com/tmhedberg/SimpylFold
 let g:SimpylFold_docstring_preview = 1
+
+" 配置Typescript插件
+" let g:typescript_indent_disable = 1
