@@ -2,11 +2,15 @@ execute pathogen#infect()
 syntax on
 filetype plugin on
 filetype plugin indent on
-set ts=2
+"set ts=2
 "set shiftwidth=4
 set expandtab
 set autoindent
+set autowrite
 set nu
+
+" using the clipboard as the default register
+set clipboard=unnamed
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -20,20 +24,20 @@ set incsearch		" do incremental searching
 " 配置ctags
 " let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
 
-autocmd BufNewFile,BufReadPost *.vue setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.go setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.json setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.scala setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.css setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.ejs setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.xml setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.sh setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.conf setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.ts setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.html setl tabstop=2 shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.yaml setl tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.go     setl noexpandtab
+autocmd BufNewFile,BufReadPost *.vue    setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.json   setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.coffee setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.scala  setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.js     setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.css    setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.ejs    setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.xml    setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.sh     setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.conf   setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.ts     setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.html   setl tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufReadPost *.yaml   setl tabstop=2 shiftwidth=2
 
 au BufNewFile,BufRead *.ejs set filetype=html
 
@@ -58,29 +62,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 map <silent> <Leader>tdef :TernDef<CR>
 map <silent> <Leader>tdoc :TernDoc<CR>
 
-" vim-go custom mappings
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>r <Plug>(go-run)
-au FileType go nmap <Leader>b <Plug>(go-build)
-au FileType go nmap <Leader>gt <Plug>(go-test)
-au FileType go nmap <Leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>e <Plug>(go-rename)
-au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
-au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
-au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
-
 " color setting
 let g:rehash256 = 1
 let g:molokai_original = 1
@@ -97,11 +78,6 @@ nmap <F2> :NERDTreeToggle<CR>
 
 set encoding=utf-8
 set termencoding=utf-8
-
-" set powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
 
 " 配置Haskell
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -131,3 +107,22 @@ let g:SimpylFold_docstring_preview = 1
 
 " 配置Typescript插件
 " let g:typescript_indent_disable = 1
+
+" vim-go配置
+let g:go_fmt_command = "goimports"
+" autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+" vim-go配置 end

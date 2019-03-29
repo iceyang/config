@@ -102,29 +102,25 @@ export NODE_ENV='development'
 export GOBIN="/Users/iceyang/project/go/bin"
 export GOPATH="/Users/iceyang/project/go"
 
-export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/qrsctl:$ANDROID_SDK_HOME/tools:$GOBIN:$SBT_HOME/bin:$HOME/Library/Python/2.7/bin"
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/qrsctl:$ANDROID_SDK_HOME/tools:$GOBIN:$SBT_HOME/bin"
 
 # set vim alias
+alias vim="/usr/local/Cellar/macvim/8.1-155/MacVim.app/Contents/MacOS/Vim"
+# alias vim=nvim
+
 export TMUX_POWERLINE_SEG_WEATHER_LOCATION="2161838"
 
 # sbt repo
 alias repox="java -Xmx512m -jar /Users/iceyang/project/repox/target/scala-2.11/repox-assembly-0.1-SNAPSHOT.jar"
 
 #alias
-alias vim="/usr/local/Cellar/macvim/8.0-143/MacVim.app/Contents/MacOS/Vim"
 alias ll="ls -alh"
-#alias vim=mvim
 
 export NVM_DIR="/Users/iceyang/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 source ~/.vipcrc
 source ~/.myselfrc
-source ~/.vmrc
-
-#polipo，socks转http
-alias polipo="polipo socksParentProxy=localhost:1080 daemonise=true logFile=/Users/iceyang/polipo.log"
-alias setproxy="export http_proxy='http://localhost:8123'; export https_proxy='http://localhost:8123'"
 
 alias pm2log="tail -f /Users/iceyang/.pm2/logs/*.log | bunyan"
 
