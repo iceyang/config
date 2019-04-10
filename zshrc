@@ -110,11 +110,9 @@ alias vim="/usr/local/Cellar/macvim/8.1-155/MacVim.app/Contents/MacOS/Vim"
 
 export TMUX_POWERLINE_SEG_WEATHER_LOCATION="2161838"
 
-# sbt repo
-alias repox="java -Xmx512m -jar /Users/iceyang/project/repox/target/scala-2.11/repox-assembly-0.1-SNAPSHOT.jar"
-
 #alias
 alias ll="ls -alh"
+alias finder="open ."
 
 export NVM_DIR="/Users/iceyang/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
