@@ -91,7 +91,7 @@ export LC_ALL=en_US.UTF-8
 export SVN_EDITOR=vim
 #export SVN_EDITOR=emacs
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JAVA_HOME=`/usr/libexec/java_home -v 11.0`
 export SBT_HOME="/usr/local/sbt"
 export SBT_OPTS="-Dsbt.repository.secure=false -Dsbt.override.build.repos=true -XX:+CMSClassUnloadingEnabled"
 export ANDROID_SDK_HOME="/Users/iceyang/Library/Android/sdk"
