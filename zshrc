@@ -120,7 +120,7 @@ export NVM_DIR="/Users/iceyang/.nvm"
 source ~/.vipcrc
 source ~/.myselfrc
 
-alias pm2log="tail -f /Users/iceyang/.pm2/logs/*.log | bunyan"
+alias pm2log="pm2 logs --raw | bunyan"
 
 source <(kubectl completion zsh)
 source ~/.minikube-completion
