@@ -53,7 +53,7 @@ map <silent> <leader>h <c-w>h
 map <silent> <leader>j <c-w>j
 map <silent> <leader>k <c-w>k
 map <silent> <leader>l <c-w>l
-map <silent> <leader>gy :Goyo<CR>
+map <silent> <leader>gg :Goyo<CR>
 
 "When .vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc 
