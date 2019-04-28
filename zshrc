@@ -123,5 +123,6 @@ source ~/.myselfrc
 alias pm2log="pm2 logs --raw | bunyan"
 
 source <(kubectl completion zsh)
+source <(helm completion zsh)
 source ~/.minikube-completion
 source ~/.npmcompletion
