@@ -1,7 +1,40 @@
-execute pathogen#infect()
-syntax on
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'fatih/vim-go'
+Plugin 'mg979/vim-visual-multi'
+Plugin 'preservim/nerdtree'
+Plugin 'mileszs/ack.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'ycm-core/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
 filetype plugin on
 filetype plugin indent on
+
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+syntax on
 "set ts=2
 "set shiftwidth=4
 set expandtab
@@ -79,34 +112,12 @@ nmap <F2> :NERDTreeToggle<CR>
 set encoding=utf-8
 set termencoding=utf-8
 
-" 配置Haskell
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_indent_if = 3
-let g:haskell_indent_case = 2
-let g:haskell_indent_let = 4
-let g:haskell_indent_where = 6
-let g:haskell_indent_do = 3
-let g:haskell_indent_in = 1
-let g:haskell_indent_guard = 2
-let g:haskell_indent_case_alternative = 1
-
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
 
 " Enable folding with the spacebar
 nnoremap <space> za
-
-" 配置缩进 https://github.com/tmhedberg/SimpylFold
-let g:SimpylFold_docstring_preview = 1
-
-" 配置Typescript插件
-" let g:typescript_indent_disable = 1
 
 " vim-go配置
 let g:go_fmt_command = "goimports"
